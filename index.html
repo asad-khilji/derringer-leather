@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derringer Leather</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Playfair Display & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        leather: {
+                            950: '#0b0806',
+                            900: '#120d09',
+                            800: '#1c140e',
+                            700: '#2b1f16',
+                            600: '#3d2c1f',
+                            500: '#5c4033',
+                            400: '#8c624d',
+                            300: '#b8907a',
+                            200: '#d9c2b3',
+                            100: '#f5efe8',
+                        },
+                        gold: {
+                            500: '#c5a880',
+                            600: '#a8885c',
+                            400: '#dfc59e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #120d09;
+            color: #d9c2b3;
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1c140e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3d2c1f;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5c4033;
+        }
+        .gold-border {
+            border-color: rgba(197, 168, 128, 0.3);
+        }
+        .gold-border:focus, .gold-border:hover {
+            border-color: rgba(197, 168, 128, 0.8);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    </style>
+</head>
+<body class="bg-leather-900 text-leather-200 antialiased selection:bg-gold-500 selection:text-leather-900 min-h-screen flex flex-col justify-between">
+
+    <!-- JSON Product Dataset & Categories -->
+    <script>
+        const categoriesList = [
+            "Mens Jackets",
+            "Ladies Jackets",
+            "Wallets",
+            "Top Hats",
+            "Cowboy Hats",
+            "Crushable Hats",
+            "Belts"
+        ];
+
+        const categoryRepresentations = {
+            "Mens Jackets": {
+                image: "https://unikinternational.com/cdn/shop/files/Man_with_a_beard_sitting_on_a_motorcycle.jpg?v=1761715839&width=1000",
+                description: ""
+            },
+            "Ladies Jackets": {
+                image: "https://unikinternational.com/cdn/shop/files/lady_wearing_a_black_leather_jacket.jpg?v=1761718585&width=1000",
+                description: ""
+            },
+            "Wallets": {
+                image: "https://unikinternational.com/cdn/shop/files/Black_leather_wallet_for_men.png?v=1761281141&width=900",
+                description: ""
+            },
+            "Top Hats": {
+                image: "https://unikinternational.com/cdn/shop/files/Mad_Hatter_-_Mens_Premium_Leather_Top_Hat.jpg?v=1752784532&width=1000",
+                description: ""
+            },
+            "Cowboy Hats": {
+                image: "https://unikinternational.com/cdn/shop/files/9212.0_-_Premium_Leather_Cowboy_Hat.jpg?v=1752784535&width=1000",
+                description: ""
+            },
+            "Crushable Hats": {
+                image: "https://unikinternational.com/cdn/shop/files/Crushable_Leather_Cowboy_Hat.jpg?v=1752784542&width=1000",
+                description: ""
+            },
+            "Belts": {
+                image: "https://unikinternational.com/cdn/shop/files/5851.00_-_Mens_Premium_Leather_Belt..jpg?v=1752784651&width=1200",
+                description: ""
+            }
+        };
+
+        const productDatabase = [
+            {
+                id: "1",
+                styleNumber: "6905.LA",
+                categoryName: "Mens Jackets",
+                name: "Mens Premium Leather Jacket",
+                image: "https://unikinternational.com/cdn/shop/files/1_5e6d8ec2-cca9-4ed2-adcb-217166f39c93.webp?v=1789081161&width=1200",
+                description: "Unleash your ride in the Dragon men's premium leather motorcycle jacket, expertly crafted from 0.9–1.0mm Premium Lambskin Leather for an ultra-soft, luxuriously smooth feel with exceptional durability and a sleek all-black finish. Built for serious riders, this men's biker leather jacket features Kevlar reinforcement at the elbows and shoulders for superior impact protection, plus a removable hoodie that makes it effortlessly versatile across every season and road condition.",
+                features: ["0.9–1.0mm Premium Lambskin Leather construction", "Antique silver hardware", "Built in hanging loop", "Euro Collar", "Front and Back Vents for ventilation", "Hidden YKK Zip and Snap Closure", "Kevlar on Elbows and Shoulders", "Liner", "Removable Hoodie", "Snaps on Cuffs", "Two inside pockets", "Two outside chest pockets", "Two outside hand warmer pockets", "SizesL S-5XL"]
+            }
+        ];
+    </script>
+
+    <!-- Header & Navigation with Even Spacing -->
+    <header class="sticky top-0 z-40 bg-leather-950/95 backdrop-blur-md border-b border-leather-800 shadow-2xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            
+            <!-- Left: Brand Logo & Tagline -->
+            <div class="flex items-center space-x-3 cursor-pointer group" onclick="navigateTo('home')">
+                <div>
+                   <img src="./logo.png" alt="logo" width="150">
+                </div>
+            </div>
+
+            <!-- Center: Category Navigation Links -->
+            <nav id="nav-categories" class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 text-xs font-medium">
+                <!-- Dynamically populated -->
+            </nav>
+
+            <!-- Right: Style Number Search Trigger -->
+            <div class="flex items-center">
+                <button onclick="openSearchModal()" class="flex items-center text-xs bg-leather-900 text-leather-300 border gold-border px-4 py-2.5 rounded-xl hover:border-gold-500 hover:text-white transition-all shadow-md group">
+                    <i class="fa-solid fa-magnifying-glass text-gold-500 mr-2 group-hover:scale-110 transition-transform"></i> 
+                    <span>Search Style #...</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN APP CONTAINER -->
+    <main id="app-container" class="flex-grow">
+        <!-- Dynamically rendered views -->
+    </main>
+
+    <!-- SEARCH MODAL -->
+    <div id="search-modal" class="fixed inset-0 z-50 bg-leather-950/85 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="bg-leather-800 border gold-border rounded-2xl max-w-2xl w-full p-6 shadow-2xl relative animate-fade-in">
+            <button onclick="closeSearchModal()" class="absolute top-4 right-4 text-leather-400 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
+            <h3 class="font-serif text-2xl text-leather-100 mb-2">Style Number & Keyword Search</h3>
+            <p class="text-xs text-leather-400 mb-6">Enter a unique style number (e.g., <span class="text-gold-500 font-mono">DJ-801</span>, <span class="text-gold-500 font-mono">TH-201</span>) or product keyword.</p>
+            
+            <div class="relative mb-6">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-gold-500"></i>
+                <input type="text" id="modal-search-input" oninput="handleInstantSearch(this.value)" placeholder="Type style # or product name..." class="w-full bg-leather-900 border gold-border rounded-xl pl-12 pr-4 py-3 text-leather-100 placeholder-leather-500 focus:outline-none focus:ring-2 focus:ring-gold-500 font-sans">
+            </div>
+
+            <div id="modal-search-results" class="max-h-96 overflow-y-auto space-y-3 pr-2">
+                <div class="text-center py-8 text-leather-500 text-sm">Start typing to query the Derringer catalog...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NOTIFICATION TOAST -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-leather-800 border gold-border text-leather-100 px-5 py-3.5 rounded-xl shadow-2xl flex items-center space-x-3">
+        <i class="fa-solid fa-circle-check text-gold-500 text-lg"></i>
+        <span id="toast-message" class="text-sm font-medium">Style noted.</span>
+    </div>
+
+   
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        let currentView = 'home'; // 'home', 'category', or 'product'
+        let currentCategory = null;
+        let currentProductId = null;
+
+        function renderNavCategories() {
+            const navContainer = document.getElementById('nav-categories');
+            if (!navContainer) return;
+
+            navContainer.innerHTML = categoriesList.map(cat => {
+                const isActive = (currentView === 'category' && currentCategory === cat);
+                return `
+                    <button onclick="navigateTo('category', '${cat}')" class="px-2.5 py-1.5 rounded-lg transition-all ${isActive ? 'bg-gold-500 text-leather-900 font-bold shadow-md' : 'text-leather-300 hover:text-gold-400 hover:bg-leather-900'}">
+                        ${cat}
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function navigateTo(view, param = null) {
+            currentView = view;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            const container = document.getElementById('app-container');
+            container.innerHTML = '';
+
+            renderNavCategories();
+
+            if (view === 'home') {
+                container.innerHTML = renderHomeView();
+            } else if (view === 'category') {
+                currentCategory = param;
+                container.innerHTML = renderCategoryView(param);
+            } else if (view === 'product') {
+                currentProductId = param;
+                container.innerHTML = renderProductDetailView(param);
+            }
+        }
+
+        function renderHomeView() {
+            return `
+                <div class="animate-fade-in">
+                    <!-- Hero Banner -->
+                    <section class="relative min-h-[55vh] flex items-center justify-center bg-leather-950 overflow-hidden px-4">
+                        <div class="absolute inset-0 z-0 opacity-35">
+                            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=1920&q=90" alt="Derringer Leather Atelier" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-leather-900 via-leather-900/60 to-transparent"></div>
+                        </div>
+                        <div class="relative z-10 max-w-4xl mx-auto text-center py-16">
+                            <span class="inline-block text-xs uppercase tracking-[0.4em] text-gold-500 mb-4 font-semibold px-4 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30">
+                                Uncompromising Craftsmanship Since 2016
+                            </span>
+                            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold text-leather-100 mb-6 leading-tight">
+                                Timeless Hides, <br><span class="italic text-gold-400">Legendary Presence</span>
+                            </h1>
+                            <p class="text-leather-300 text-base sm:text-lg max-w-2xl mx-auto mb-8 font-sans leading-relaxed">
+                               
+                            </p>
+                            <div class="flex items-center justify-center gap-4">
+                                <button onclick="scrollToCategories()" class="bg-gold-500 hover:bg-gold-400 text-leather-900 font-bold px-8 py-3.5 rounded-xl transition-all shadow-xl hover:shadow-gold-500/20 flex items-center space-x-3">
+                                    <span>Explore Categories</span>
+                                    <i class="fa-solid fa-arrow-down"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Category Grids Section -->
+                    <section id="categories-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                        <div class="text-center max-w-2xl mx-auto mb-14">
+                            <span class="text-gold-500 text-xs uppercase tracking-[0.3em] font-semibold"></span>
+                            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-leather-100 mt-2">Browse By Category</h2>
+                            <p class="text-xs text-leather-400 mt-2">.</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                            ${categoriesList.map(cat => {
+                                const rep = categoryRepresentations[cat] || { image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=1000&q=80", description: "Master artisan leather and headwear." };
+                                const count = productDatabase.filter(p => p.categoryName === cat).length;
+                                return `
+                                    <div onclick="navigateTo('category', '${cat}')" class="bg-leather-900 border border-leather-700/70 rounded-2xl overflow-hidden group cursor-pointer hover:border-gold-500/80 transition-all duration-300 flex flex-col justify-between shadow-xl">
+                                        <div class="relative h-72 overflow-hidden bg-leather-950">
+                                            <img src="${rep.image}" alt="${cat}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                            <div class="absolute inset-0 bg-gradient-to-t from-leather-950 via-leather-950/40 to-transparent opacity-85"></div>
+                                            
+                                            <div class="absolute bottom-4 left-4 right-4">
+                                                <h3 class="font-serif text-2xl font-bold text-leather-100 group-hover:text-gold-400 transition-colors">${cat}</h3>
+                                            </div>
+                                        </div>
+                                        <div class="p-5 flex flex-col justify-between flex-grow bg-leather-800/40 border-t border-leather-800">
+                                            <p class="text-xs text-leather-300 leading-relaxed mb-4">${rep.description}</p>
+                                            <div class="flex items-center justify-between text-xs text-gold-500 font-medium">
+                                                <span>View Collection</span>
+                                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </section>
+                </div>
+            `;
+        }
+
+        function scrollToCategories() {
+            const el = document.getElementById('categories-section');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function renderCategoryView(categoryName) {
+            const filteredProducts = productDatabase.filter(p => p.categoryName === categoryName);
+
+            return `
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 animate-fade-in">
+                    <!-- Breadcrumbs -->
+                    <div class="flex items-center space-x-2 text-xs text-leather-400 mb-8">
+                        <button onclick="navigateTo('home')" class="hover:text-gold-500">Home Showcase</button>
+                        <span>/</span>
+                        <span class="text-gold-500 font-semibold">${categoryName}</span>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 border-b border-leather-800 pb-6">
+                        <div>
+                            <span class="text-gold-500 text-xs uppercase tracking-[0.3em] font-semibold"></span>
+                            <h1 class="font-serif text-3xl sm:text-5xl font-bold text-leather-100 mt-2">${categoryName}</h1>
+                        </div>
+                        <div class="font-mono text-xs text-leather-400">
+                            
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        ${filteredProducts.length > 0 ? filteredProducts.map(p => `
+                            <div onclick="navigateTo('product', '${p.id}')" class="bg-leather-900 border border-leather-700/70 rounded-2xl overflow-hidden group cursor-pointer hover:border-gold-500/60 transition-all duration-300 flex flex-col justify-between shadow-xl">
+                                <div class="relative h-80 overflow-hidden bg-leather-950">
+                                    <img src="${p.image}" alt="Style #${p.styleNumber}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-leather-950/90 via-transparent to-transparent opacity-80"></div>
+                                   
+                                </div>
+                                <div class="p-6 bg-leather-800/40 border-t border-leather-800/60 flex flex-col justify-between">
+                                    <div class="flex items-center justify-between mb-2">
+                                       
+                                    </div>
+                                    <h3 class="font-serif text-lg font-bold text-leather-100 mb-3 group-hover:text-gold-400 transition-colors">${p.name}</h3>
+                                    <p class="text-xs text-leather-300 line-clamp-2 mb-4 leading-relaxed">${p.description}</p>
+                                    <div class="flex items-center justify-between text-xs text-gold-500 pt-3 border-t border-leather-700/50">
+                                        <span>View Product</span>
+                                        <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('') : `
+                            <div class="col-span-full py-16 text-center text-leather-400">
+                                <p class="text-base">No specimens currently found in this category.</p>
+                                <button onclick="navigateTo('home')" class="mt-4 text-xs bg-gold-500 text-leather-900 font-bold px-4 py-2 rounded-lg">Return to Categories</button>
+                            </div>
+                        `}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderProductDetailView(productId) {
+            const product = productDatabase.find(p => p.id === productId) || productDatabase[0];
+            const relatedProducts = productDatabase.filter(p => p.categoryName === product.categoryName && p.id !== product.id).slice(0, 3);
+
+            return `
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 animate-fade-in">
+                    <!-- Breadcrumbs -->
+                    <div class="flex items-center space-x-2 text-xs text-leather-400 mb-8">
+                        <button onclick="navigateTo('home')" class="hover:text-gold-500">Home Showcase</button>
+                        <span>/</span>
+                        <button onclick="navigateTo('category', '${product.categoryName}')" class="hover:text-gold-500">${product.categoryName}</button>
+                        <span>/</span>
+                        <span class="text-gold-500 font-mono">Style #${product.styleNumber}</span>
+                    </div>
+
+                    <!-- Main Product Detail View: ONLY Style Number, Image, and Description -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 items-start">
+                        <!-- Product Image -->
+                        <div class="relative bg-leather-950 rounded-2xl overflow-hidden border gold-border shadow-2xl">
+                            <img src="${product.image}" alt="${product.name}" class="w-full h-[500px] sm:h-[600px] object-cover">
+                            
+                        </div>
+
+                        <!-- Product Information Details (No Price / No Cart) -->
+                        <div class="bg-leather-800/40 border border-leather-700/60 p-8 rounded-2xl shadow-xl">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-xs uppercase tracking-[0.2em] text-gold-500 font-semibold">${product.categoryName}</span>
+                               
+                            </div>
+
+                            <h1 class="font-serif text-3xl sm:text-4xl font-bold text-leather-100 mb-6">${product.name}</h1>
+                            
+                            <!-- Style Number Badge Display -->
+                            <div class="flex items-center gap-3 bg-leather-900 border gold-border px-5 py-3 rounded-xl mb-6 shadow-inner">
+                                <span class="text-xs text-leather-400 uppercase tracking-wider font-semibold">Style Reference:</span>
+                                <span class="text-gold-500 font-mono font-bold text-base">#${product.styleNumber}</span>
+                            </div>
+
+                            <div class="mb-8">
+                                <h3 class="text-xs uppercase tracking-[0.2em] text-leather-400 font-semibold mb-2">Description</h3>
+                                <p class="text-leather-300 text-sm leading-relaxed">
+                                    ${product.description}
+                                </p>
+                            </div>
+
+                            <!-- Material Features List -->
+                            <div class="mb-8 border-t border-leather-700/60 pt-6">
+                                <h4 class="text-xs uppercase tracking-wider text-leather-400 font-semibold mb-3">Craftsmanship Highlights</h4>
+                                <ul class="space-y-2.5">
+                                    ${product.features.map(feat => `
+                                        <li class="flex items-center text-xs text-leather-200">
+                                            <i class="fa-solid fa-check text-gold-500 mr-3"></i>
+                                            ${feat}
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+
+                            <!-- Showcase Info Box -->
+                            
+                        </div>
+                    </div>
+
+                    <!-- Related Category Specimens -->
+                    <div class="border-t border-leather-800 pt-16">
+                        <div class="flex items-center justify-between mb-8">
+                            <h3 class="font-serif text-2xl font-bold text-leather-100">More in ${product.categoryName}</h3>
+                            <button onclick="navigateTo('category', '${product.categoryName}')" class="text-xs text-gold-500 hover:underline">View All Category</button>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                            ${relatedProducts.length > 0 ? relatedProducts.map(rp => `
+                                <div onclick="navigateTo('product', '${rp.id}')" class="bg-leather-900 border border-leather-700/70 rounded-2xl overflow-hidden group cursor-pointer hover:border-gold-500/60 transition-all duration-300 flex flex-col justify-between shadow-xl">
+                                    <div class="relative h-64 overflow-hidden bg-leather-950">
+                                        <img src="${rp.image}" alt="Style #${rp.styleNumber}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                        <div class="absolute top-3 left-3 bg-leather-950/80 backdrop-blur-md border gold-border text-gold-500 font-mono text-xs px-2.5 py-1 rounded-lg">
+                                            #${rp.styleNumber}
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                            `).join('') : `<div class="text-xs text-leather-500">No other specimens in this category at this time.</div>`}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function openSearchModal() {
+            const modal = document.getElementById('search-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.getElementById('modal-search-input').focus();
+        }
+
+        function closeSearchModal() {
+            const modal = document.getElementById('search-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+
+        function handleInstantSearch(query) {
+            const resultsContainer = document.getElementById('modal-search-results');
+            const q = query.trim().toLowerCase();
+
+            if (!q) {
+                resultsContainer.innerHTML = `<div class="text-center py-8 text-leather-500 text-sm">Start typing to query style numbers or keywords...</div>`;
+                return;
+            }
+
+            const matched = productDatabase.filter(p => 
+                p.styleNumber.toLowerCase().includes(q) ||
+                p.name.toLowerCase().includes(q) ||
+                p.categoryName.toLowerCase().includes(q) ||
+                p.description.toLowerCase().includes(q)
+            );
+
+            if (matched.length === 0) {
+                resultsContainer.innerHTML = `<div class="text-center py-8 text-leather-500 text-sm">No style numbers or products found matching "${query}".</div>`;
+                return;
+            }
+
+            resultsContainer.innerHTML = matched.map(p => `
+                <div onclick="closeSearchModal(); navigateTo('product', '${p.id}')" class="flex items-center space-x-4 p-3 rounded-xl bg-leather-900 border border-leather-700 hover:border-gold-500 cursor-pointer transition-all">
+                    <img src="${p.image}" alt="${p.name}" class="w-14 h-14 object-cover rounded-lg border border-leather-700">
+                    <div class="flex-1">
+                        <div class="flex items-center space-x-2">
+                            <span class="bg-leather-800 text-gold-500 font-mono text-xs px-2 py-0.5 rounded border gold-border">Style #${p.styleNumber}</span>
+                            <span class="text-[10px] uppercase text-leather-400">${p.categoryName}</span>
+                        </div>
+                        <h4 class="font-serif text-sm font-bold text-leather-100 mt-1">${p.name}</h4>
+                    </div>
+                    <div class="font-mono text-xs text-gold-500">${p.styleNumber}</div>
+                </div>
+            `).join('');
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').innerText = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3500);
+        }
+
+        window.onload = function() {
+            renderNavCategories();
+            navigateTo('home');
+        };
+    </script>
+</body>
+</html>
