@@ -1234,7 +1234,7 @@
             navContainer.innerHTML = categoriesList.map(cat => {
                 const isActive = (currentView === 'category' && currentCategory === cat);
                 return `
-                    <button onclick="navigateTo('category', '${cat}')" class="px-2.5 py-1.5 rounded-lg transition-all ${isActive ? 'bg-gold-500 text-leather-900 font-bold shadow-md' : 'text-leather-300 hover:text-gold-400 hover:bg-leather-900'}">
+                    <button onclick="navigateTo('category', '${cat}')" class="px-2.5 py-1.5 rounded-lg transition-all : 'text-leather-300 hover:text-gold-400 hover:bg-leather-900'}">
                         ${cat}
                     </button>
                 `;
