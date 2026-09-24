@@ -1423,27 +1423,7 @@ function renderCategoryView(categoryName) {
                         </div>
                     </div>
 
-                    <!-- Related Category Specimens -->
-                    <div class="border-t border-leather-800 pt-16">
-                        <div class="flex items-center justify-between mb-8">
-                            <h3 class="font-serif text-2xl font-bold text-leather-100">More in ${product.categoryName}</h3>
-                            <button onclick="navigateTo('category', '${product.categoryName}')" class="text-xs text-gold-500 hover:underline">View All Category</button>
-                        </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                            ${relatedProducts.length > 0 ? relatedProducts.map(rp => `
-                                <div onclick="navigateTo('product', '${rp.id}')" class="bg-leather-900 border border-leather-700/70 rounded-2xl overflow-hidden group cursor-pointer hover:border-gold-500/60 transition-all duration-300 flex flex-col justify-between shadow-xl">
-                                    <div class="relative h-64 overflow-hidden bg-leather-950">
-                                        <img src="${rp.image}" alt="Style #${rp.styleNumber}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                                        <div class="absolute top-3 left-3 bg-leather-950/80 backdrop-blur-md border gold-border text-gold-500 font-mono text-xs px-2.5 py-1 rounded-lg">
-                                            #${rp.styleNumber}
-                                        </div>
-                                    </div>
-                                   
-                                </div>
-                            `).join('') : `<div class="text-xs text-leather-500">No other specimens in this category at this time.</div>`}
-                        </div>
-                    </div>
-                </div>
+                 
             `;
         }
 
